@@ -1,3 +1,26 @@
+% Init Neuron Type values
+%C(pF) kz(?S/V) Er(mV) Et(mV) a (KHz) b(nS) c(mV) d(pA) vpeak(mV)
+type = 'RS';
+if type == 'RS'
+   C =  100E-12;   Kz=  0.7E-6;   Er=  -60E-3;   Et=  -40E-3;   a =  0.03E3;
+   b =  -2E-9;   c =  -50E-3;   d =  100E-12;   Vpeak=35E-3;
+elseif type == 'IB'
+   C =  150E-12;   Kz=  1.2E-6;   Er=  -75E-3;   Et=  -45E-3;   a =  0.01E3;
+   b =  5E-9;   c =  -56E-3;   d =  130E-12;   Vpeak=50E-3;
+elseif type == 'CH'
+   C =  50E-12;   Kz=  1.5E-6;   Er=  -60E-3;   Et=  -40E-3;   a =  0.03E3;
+   b =  1E-9;   c =  -40E-3;   d =  150E-12;   Vpeak=25E-3;
+end
+
+
+
+
+N = 10; % No of neurons
+dt = 0.1E-3; % time step
+Tmax = 0.5; %max time
+Iapp = 250E-12; % applied current
+M = Tmax/dt; % max time index
+
 %some constants describing the model
 gL = 30*10^-9 ;% mhos
 EL = -70*10^-3 ;% Volts
